@@ -50,7 +50,7 @@
       <span aria-hidden="true"></span>
     </a>
   </div>
-  <div class="navbar-menu">
+  <!-- <div class="navbar-menu">
     <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
       <a class="navbar-item" href="https://keunhong.com">
       <span class="icon">
@@ -77,7 +77,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
 </nav>
@@ -88,7 +88,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Nerfies: Deformable Neural Radiance Fields</h1>
+          <h1 class="title is-1 publication-title">ExtraGS: Street View Extrapolation with Geometric and Generative Prior</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://keunhong.com">Anonymous Submission</a><sup>1</sup>,</span>
@@ -163,11 +163,11 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="./static/videos/shift_set_45000.mp4"
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        <span class="dnerf">ExtraGS</span> turns selfie videos from your phone into
         free-viewpoint
         portraits.
       </h2>
@@ -176,7 +176,7 @@
 </section>
 
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -231,7 +231,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 <section class="section">
@@ -242,31 +242,21 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
+            Synthesizing realistic extrapolated views from recorded driving logs is crucial
+            for realistic driving scene simulation, yet it remains a challenging task. Recent
+            methods incorporate generative priors as pseudo ground truth at extrapolated views.
+            However, naively exploiting these generative priors often result in degradates
+            performance in the original trajectory. We seek in the design space of the 3D
+            scene representation itself and propose ExtraGS, a driving scene reconstruction
+            model that enables high-fidelity trajectory extrapolation. Central to our method is a
+            road surface model that employs a dimension-reduced signed distance function to
+            precisely capture road surface geometries. Additionally, ExtraGS incorporates a
+            novel self-supervised uncertainty estimation technique, providing precise control
+            to information from pretrained generative models. Comprehensive experiments
+            across various datasets, diverse multi-camera configurations, and multiple genera-
+            tive prior selections demonstrate that ExtraGS substantially improves the realism
+            and consistency of extrapolated views, while maintaining strong performance on
+            original trajectories.
           </p>
         </div>
       </div>
@@ -276,11 +266,18 @@
     <!-- Paper video. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+        <h2 class="title is-3">Visual Comparisons</h2>
+        <div class="container is-max-desktop">
+        <div class="hero-body">
+          <video id="teaser" autoplay muted loop playsinline height="100%">
+          <source src="./static/videos/shift_set_45000.mp4"
+                type="video/mp4">
+          </video>
+      <h2 class="subtitle has-text-centered">
+          <span class="dnerf">ExtraGS</span> 
+      </h2>
+    </div>
+  </div>
       </div>
     </div>
     <!--/ Paper video. -->
