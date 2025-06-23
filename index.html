@@ -330,8 +330,8 @@ class="external-link button is-normal is-rounded is-dark">
               for realistic driving scene simulation, yet it remains a challenging task. Recent
               methods incorporate generative priors as pseudo ground truth at extrapolated views.
               However, naively exploiting these generative priors often result in degradation of
-              performance in the original trajectory and results in lack of geometric consistency. 
-              We propose ExtraGS, a holistic approach for driving scene trajectory extrapolation 
+              performance in the original trajectory and results in lack of geometric consistency.
+              We propose ExtraGS, a holistic approach for driving scene trajectory extrapolation
               that combines geometric and generative priors. Central to our method is a
               road surface model that employs a dimension-reduced signed distance function to
               precisely capture road surface geometries. Additionally, ExtraGS incorporates a
@@ -366,135 +366,206 @@ class="external-link button is-normal is-rounded is-dark">
 
       </div>
 
-      <img src="static/images/pipeline.jpg">
+      <img src="static/images/pipeline_new_v2.png">
 
-      <p> (a) Our method decomposes driving scenes into specialized components based on their distinct geometric
-        properties. (b) We define a self-supervised uncertainty estimation method, which models how likely is a view
-        from the training data.
-        The uncertainty is used to control the information from the generative model by scaling the gradient from the
-        the loss
+      <p> <b>Left</b>: Our method decomposes driving scenes into specialized 3D Gaussian nodes based on their distinct
+        geometric
+        properties. A novel Road Surface Gaussian is proposed to capture the road surface geometry with a
+        dimension-reduced SDF, and the
+        appearance with planar 3D Gaussians. <b>Right Top</b>: We propose an uncertainty estimation method that
+        considers both occlusion and view deviation.
         functions from the pseudo ground truth. The Directional Deviation can also be rendered together with rgb values
         to serve as an inpainting
-        mask to guide the diffusion process. (c) We leverage pretrained multi-view generative model in a zero-shot
-        manner. Extra conditions such as 3D
-        object bounding boxes and text descriptions are provided as additional guidance.
+        mask to guide the diffusion process. <b>Right Bottom</b>: We leverage off-the-shelf generative models to
+        generate pseudo ground truth at extrapolated views. The estimated uncertainty
+        provides pixel level control to the information from the generative model.
       </p>
 
     </div>
 
   </section>
 
+  <section class="hero is-small">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Visualization on Estimated Uncertainty</h2>
+      <hr>
+      <div class="item">
+        <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+          <source src="assets/nuscenes_uncertainty.mp4" type="video/mp4">
+        </video>
+        <p> ExtraGS models two types of uncertainty at extrapolated views: <i>Occlusion</i> and <i>Deviation</i>. The
+          rendered uncertainty is used to control the generative model to only provide generated information at highly
+          uncertain pixels.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
 
   <!-- Visual Comparisons -->
   <section class="hero is-small">
 
     <!-- <section class="section"> -->
-
     <div class="hero-body">
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered">Visual Comparisons</h2>
         <hr>
-        <h3 class="subtitle is-5">Results on the NuSceness Dataset</h3>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
-              <source
-                src="assets/nuscenes_605.mp4"
-                type="video/mp4">
-            </video>
+        <h4 class="subtitle is-5"><b>6-camera Extrapolation Results on the NuScenes Dataset</b>. All trajectories are
+          laterally shifted by 3m. We take OmniRe as our baseline method. </h3>
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_86.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_78.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_87.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_605.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_440.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_412.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_410.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_409.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="item">
+              <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                <source src="assets/nuscenes_263.mp4" type="video/mp4">
+              </video>
+            </div>
           </div>
-          <div class="item">
-            <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
-              <source
-                src="assets/nuscenes_605.mp4"
-                type="video/mp4">
-            </video>
-          </div>
-        </div>
 
 
-        <hr>
-        <hr>
-        <h3 class="subtitle is-5">Results on the Waymo Dataset</h3>
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
-              <source
-                src="assets/waymo_none.mp4"
-                type="video/mp4">
-            </video>
-          </div>
-          <div class="item">
-            <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
-              <source
-                src="assets/waymo_049.mp4"
-                type="video/mp4">
-            </video>
-          </div>
-        </div>
+          <hr>
+          <hr>
+          <h4 class="subtitle is-5"><b>3-cam Extrapolation Results on the Waymo Open Dataset</b>. All trajectories are
+            laterally shifted by 3m. </h3>
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                  <source src="assets/waymo_1.mp4" type="video/mp4">
+                </video>
+              </div>
+              <div class="item">
+                <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
+                  <source src="assets/waymo_0.mp4" type="video/mp4">
+                </video>
+              </div>
+            </div>
 
-        <hr>
-        <h3 class="subtitle is-5">Improvements to exsisting Reconstruction+Generation approach</h3>
-        <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
-          <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
-            <img src="static/images/comparison/121_123_streetgs.png" alt="Street Gaussians">
-            <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter">
-            <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter+Ours">
-          </div>
-          <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
-            <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
-            <img src="static/images/comparison/090_190_ours.png" alt="Street Crafter">
-            <img src="static/images/comparison/091__front_camera.png" alt="Street Crafter+Ours">
-          </div>
-        </div>
+            <hr>
+
 
       </div>
 
   </section>
-<!-- BibTeX -->
+
+  <!-- Visual Comparisons -->
+  <section class="hero is-small">
+
+    <!-- <section class="section"> -->
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Visual Comparisons with Other Reconstruction+Generation methods</h2>
+        <hr>
+        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the NuScenes Dataset</b>. We compare our results
+          with Recondreamer and Recondreamer++. We follow Recondreamer++ and present result on scene-0105, timestep
+          130-169 and laterally shift the trajectory by 3m. The results of Recondreamer and Recondreamer++ are directly
+          taken from Recondreamer++'s repo. </h4>
+        <!-- <div id="results-carousel" class="carousel results-carousel"> -->
+        <div class="item">
+          <img class='waymo_compare' src="assets/nuscenes_recon_static.png" alt="NuScenes reconstruction comparison"
+            style="width: 100%; height: auto;">
+
+        </div>
+
+      <!-- </div>
+
+      <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the NuScenes Dataset</b></h4>
+      <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
+        <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
+          <img src="static/images/comparison/121_123_streetgs.png" alt="Street Gaussians">
+          <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter">
+          <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter+Ours">
+        </div>
+        <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
+          <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
+          <img src="static/images/comparison/090_190_ours.png" alt="Street Crafter">
+          <img src="static/images/comparison/091__front_camera.png" alt="Street Crafter+Ours">
+        </div>
+      </div> -->
+
+  </section>
+  <!-- BibTeX -->
   <section class="section" id="BibTeX">
 
-<div class="container is-max-desktop content">
+    <div class="container is-max-desktop content">
 
-<!-- <h2 class="title">Acknowledgements</h2> -->
+      <!-- <h2 class="title">Acknowledgements</h2> -->
 
-</div>
+    </div>
 
-</section>
+  </section>
 
-    <footer class="footer">
+  <footer class="footer">
 
-      <div class="container">
+    <div class="container">
 
-      </div>
+    </div>
 
-      <div class="columns is-centered">
+    <div class="columns is-centered">
 
-        <div class="column is-8">
+      <div class="column is-8">
 
-          <div class="content">
+        <div class="content">
 
-            <p>
+          <p>
 
-              We borrow the source code of this website <a href="https://github.com/nerfies/nerfies.github.io">from here
+            We borrow the source code of this website <a href="https://github.com/nerfies/nerfies.github.io">from here
 
-                (Nerfies)</a> which is licensed
+              (Nerfies)</a> which is licensed
 
-              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
 
-                Commons Attribution-ShareAlike 4.0 International License</a>.
+              Commons Attribution-ShareAlike 4.0 International License</a>.
 
-            </p>
-
-          </div>
+          </p>
 
         </div>
 
       </div>
 
-      </div>
+    </div>
 
-    </footer>
+    </div>
+
+  </footer>
 
 </body>
 
