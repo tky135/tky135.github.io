@@ -373,10 +373,7 @@ class="external-link button is-normal is-rounded is-dark">
         properties. A novel Road Surface Gaussian is proposed to capture the road surface geometry with a
         dimension-reduced SDF, and the
         appearance with planar 3D Gaussians. <b>Right Top</b>: We propose an uncertainty estimation method that
-        considers both occlusion and view deviation.
-        functions from the pseudo ground truth. The Directional Deviation can also be rendered together with rgb values
-        to serve as an inpainting
-        mask to guide the diffusion process. <b>Right Bottom</b>: We leverage off-the-shelf generative models to
+        considers both occlusion and view deviation. <b>Right Bottom</b>: We leverage off-the-shelf generative models to
         generate pseudo ground truth at extrapolated views. The estimated uncertainty
         provides pixel level control to the information from the generative model.
       </p>
@@ -395,7 +392,7 @@ class="external-link button is-normal is-rounded is-dark">
         </video>
         <p> ExtraGS models two types of uncertainty at extrapolated views: <i>Occlusion</i> and <i>Deviation</i>. The
           rendered uncertainty is used to control the generative model to only provide generated information at highly
-          uncertain pixels.
+          uncertain pixels. Results shown at 3m lateral shift. 
         </p>
       </div>
     </div>
@@ -500,26 +497,22 @@ class="external-link button is-normal is-rounded is-dark">
           taken from Recondreamer++'s repo. </h4>
         <!-- <div id="results-carousel" class="carousel results-carousel"> -->
         <div class="item">
-          <img class='waymo_compare' src="assets/nuscenes_recon_static.png" alt="NuScenes reconstruction comparison"
+          <img class='waymo_compare' src="assets/nuscenes_recondreamer.gif" alt="NuScenes reconstruction comparison"
             style="width: 100%; height: auto;">
 
         </div>
 
-      <!-- </div>
 
-      <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the NuScenes Dataset</b></h4>
-      <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
-        <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
-          <img src="static/images/comparison/121_123_streetgs.png" alt="Street Gaussians">
-          <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter">
-          <img src="static/images/comparison/121_123_ours.png" alt="Street Crafter+Ours">
-        </div>
-        <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
-          <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
-          <img src="static/images/comparison/090_190_ours.png" alt="Street Crafter">
-          <img src="static/images/comparison/091__front_camera.png" alt="Street Crafter+Ours">
-        </div>
-      </div> -->
+        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the Waymo Dataset</b>. We compare our results with StreetCrafter. We use the Vista checkpoint from StreetCrafter as our generative prior. </h4>
+          <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
+            <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
+              <img src="static/images/comparison/090_190_streetcrafter.png" alt="Street Crafter">
+              <img src="static/images/comparison/090_190_extrags.png" alt="Street Crafter+Ours">
+              <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
+            </div>
+          </div> 
+      </div>
+    </div> 
 
   </section>
   <!-- BibTeX -->
