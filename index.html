@@ -354,6 +354,15 @@ class="external-link button is-normal is-rounded is-dark">
 
       </div>
 
+      <img src="static/images/teaser_v3.png">
+
+      <p> <b>Top Left</b>: ExtraGS is a driving scene modeling framework that enables robust street view extrapolation. It adopts a holistic
+approach that integrates geometric priors, generative guidance, and uncertainty estimation to tackle the challenging problem of multi-view
+consistent extrapolation. <b>Top Right</b>: In closed-loop simulation, the self-driving agent generates multiple candidate planning trajectories
+from the original path. <b>Bottom</b>: ExtraGS renders multi-camera views along each trajectory, producing temporally and spatially consistent
+extrapolated scenes.
+      </p>
+
       <div class="columns is-centered has-text-centered">
 
         <div class="column is-four-fifths">
@@ -384,7 +393,7 @@ class="external-link button is-normal is-rounded is-dark">
 
   <section class="hero is-small">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Visualization on Estimated Uncertainty</h2>
+      <h2 class="title is-3 has-text-centered">Visualization of Estimated Uncertainty</h2>
       <hr>
       <div class="item">
         <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
@@ -503,11 +512,11 @@ class="external-link button is-normal is-rounded is-dark">
         </div>
 
 
-        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the Waymo Dataset</b>. We compare our results with StreetCrafter. We use the Vista checkpoint from StreetCrafter as our generative prior. </h4>
+        <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the Waymo Dataset</b>. We compare our results with StreetCrafter. For fair comparison, we use the Vista checkpoint from StreetCrafter as our generative prior. </h4>
           <div class="container" style="display: flex; justify-content: space-between; gap: 20px; margin-top: 30px;">
             <div class="b-dics" style="width: 1600px; font-weight: 600; display: flex; align-items: center;">
               <img src="static/images/comparison/090_190_streetcrafter.png" alt="Street Crafter">
-              <img src="static/images/comparison/090_190_extrags.png" alt="Street Crafter+Ours">
+              <img src="static/images/comparison/090_190_extrags.png" alt="Ours+Street Crafter">
               <img src="static/images/comparison/090_190_streetgs.png" alt="Street Gaussians">
             </div>
           </div> 
