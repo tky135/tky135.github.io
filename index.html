@@ -112,10 +112,6 @@
 
               <span class="author-block">
 
-                <a href="https://xiaomi-research.github.io/extrags">Shan Zhao</a><sup>2</sup>,</span>
-
-              <span class="author-block">
-
                 <a href="https://xiaomi-research.github.io/extrags">Mingfei Tu</a><sup>2</sup>,</span>
 
               <span class="author-block">
@@ -129,6 +125,8 @@
               <span class="author-block">
 
                 <a href="https://xiaomi-research.github.io/extrags">Bing Wang</a><sup>2</sup>,</span>
+
+              <br>
               <span class="author-block">
 
                 <a href="https://xiaomi-research.github.io/extrags">Guang Chen</a><sup>2</sup>,</span>
@@ -257,7 +255,7 @@
 
       </div>
 
-      <img src="static/images/teaser_v6.png">
+      <img src="static/images/teaser_v7.png">
 
       <p> <b>Top Left</b>: ExtraGS is a driving scene modeling framework that enables robust street view extrapolation. It adopts a holistic
 approach that integrates geometric priors, generative guidance, and uncertainty estimation to tackle the challenging problem of multi-view
@@ -306,9 +304,7 @@ extrapolated scenes.
         <video class='waymo_compare' autoplay controls preload="metadata" muted loop playsinline>
           <source src="assets/nuscenes_uncertainty.mp4" type="video/mp4">
         </video>
-        <p> ExtraGS models two types of uncertainty at extrapolated views: <i>Occlusion</i> and <i>Deviation</i>. The
-          rendered uncertainty is used to control the generative model to only provide generated information at highly
-          uncertain pixels. Results shown at 3m lateral shift. 
+        <p> <b>Left</b>: Noisy rendering at an extrapolated trajectory. <b>Right</b>: Estimated uncertainty. ExtraGS captures two types of uncertainty in extrapolated views: <i>Occlusion</i> and <i>Deviation</i>. This uncertainty guides the generative model to selectively synthesize content only at highly uncertain pixels.
         </p>
       </div>
     </div>
@@ -407,8 +403,7 @@ extrapolated scenes.
         <hr>
         <h4 class="subtitle is-5"><b>1-cam Extrapolation Results on the NuScenes Dataset</b>. We compare our results
           with Recondreamer and Recondreamer++. We follow Recondreamer++ and present result on scene-0105, timestep
-          130-169 and laterally shift the trajectory by 3m. The results of Recondreamer and Recondreamer++ are directly
-          taken from Recondreamer++'s repo. </h4>
+          130-169 and laterally shift the trajectory by 3m. </h4>
         <!-- <div id="results-carousel" class="carousel results-carousel"> -->
         <div class="item">
           <img class='waymo_compare' src="assets/nuscenes_recondreamer.gif" alt="NuScenes reconstruction comparison"
@@ -436,7 +431,7 @@ extrapolated scenes.
 
       <h2 class="title">BibTeX</h2>
 
-      <pre><code>d
+      <pre><code>
         
       </code></pre>
 
